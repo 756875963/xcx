@@ -1,0 +1,13 @@
+<view class="registered">
+      <image src="../../images/timg1.png" class="cart-image"/>
+      <view class="section input_div">
+          <view class="section__title">
+            <image src="../../images/footer-icon-04.png" class="cart-image2"/>
+        </view>
+		  <input  maxlength="6" placeholder="输入注册码" bindinput="bindKeyInput" />
+	  </view>
+	  
+	  <view class="submit">
+	      <button type="primary" size="1" loading="{{loading}}"  class="transfer-button" bindtap="primary"> 提交 </button>
+	  </view>
+ </view>

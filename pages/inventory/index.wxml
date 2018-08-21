@@ -1,0 +1,61 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="sales">
+    
+	<view class="search">
+	    <view class="search_li">
+		    <image src="../../images/footer-icon-011.png" class="cart-image2"/>
+		    <view class="section">
+			  <input   placeholder-class="phcolor"  maxlength="10" placeholder="商品名称" focus="true" confirm-type='search' bindconfirm="inputSearch"/>
+			</view>
+		</view>
+		<view class="scanning" bindtap="openScanningC">
+	      <image src="../../images/scanning1.png" class="cart-image"/>
+	    </view>
+	</view>
+   
+	<view class="content">
+	   <view class="main">
+	   <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="scrolltolower"  scroll-into-view="{{toView}}" bindscrolltoupper="scrolltoupper" lower-threshold="50" scroll-top="{{top}}" upper-threshold="20">
+	        <view  class="yeti" wx:if="{{titleS.upperState}}">{{titleS.upperText}}</view>
+	       <view  id="x{{item.num}}" class="li scroll-view-item" wx:for-items="{{data1}}"    wx:for-index="idx" wx:key="userInfoListId">
+	           <div class="li-image" bindtap="imgclick" data-nubmer="{{item.num}}">
+                   <image src="../../images/tms2.png" class="cart-image"/>
+	               <span>{{item.num}}</span>
+	           </div>
+	           <div class="li-text">
+	               <span class="li-text43">
+	                   <view>
+	                   {{item.description}}
+	                   </view>
+	                   <view>
+	                                                库存：{{item.remain_num}}
+	                   </view>
+	               </span>
+	               
+	               <div class="li-do">
+	                   <span class="price">￥<font>{{item.item_sale_price}}</font></span>
+	                   <span class="shoppingCart" bindtap="query_inventoryD" data-goodsId="{{item.goodsId}}" data-price="{{item.price}}" data-description="{{item.description}}" data-num="{{item.num}}">库存详情</span>
+	                   <span class="shoppingCart" bindtap="query_goodsObj" data-goodsObj="{{item}}" >商品详情</span>
+	               </div> 
+	           </div>
+	       </view>
+	       <!--没有信息-->
+	       <view class="error {{errorDis}}">
+	           <image src="../../images/icon_pressed.png" class="cart-image"/><view>没找到相关的商品信息</view>
+	       </view>
+	       <view  class="yeti" wx:if="{{titleS.downState}}">{{titleS.downText}}</view>
+	    </scroll-view>
+	       
+	   </view>
+	</view>
+	
+	<view class="mode" style="display:{{modeFlag}};" bindtap="closeMode2">
+	    <view class="barcode2">
+	      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+	      <view class="barnum">{{mode}}</view>
+	    </view>
+	</view>
+	
+	
+	
+</view>

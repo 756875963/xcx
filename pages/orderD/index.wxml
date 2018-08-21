@@ -1,0 +1,71 @@
+<view class="container">
+  <view class="order-main">
+     <view class="order-im">
+       <image src="../../images/txsh.png" class="shang"/>
+     </view>
+     <view class="order_branch bg-cs">爱蓓贝孕婴用品连锁({{obj.data.order.out_name}})</view>
+     <view class="order-line"></view>
+     <view class="order-line"></view>
+     
+     <view class="order-width order_title o_f-size">
+         <view>收银员：{{obj.data.order.create_by}}</view>
+         <view>收银类型：{{obj.data.order.receive_type}}</view>
+         <view>订单号：{{obj.data.order.code}}</view>
+         <view>会员：{{obj.data.order.vip_no+" "+obj.data.order.vip_name}}</view>
+         <view>时间：{{obj.data.order.create_time}}</view>
+     </view>
+     
+     <view class="order-line"></view>
+     <view class="order-width order-menu o_f-size">
+         <view style="width:3%">序</view>
+         <view>品名/条码</view>
+         <view>单价</view>
+         <view>数量</view>
+         <view>金额</view>
+     </view>
+     <view class="order-line"></view>
+     <view class="goods order-width">
+        
+        
+         <view  class="goodsli" wx:for-items="{{obj.data.orderDetailList}}"    wx:for-index="idx" wx:key="userInfoListId" >
+             <view class="name1 o_f-size">
+                <view class="name2-1">{{item.i}}</view>
+                <view><block wx:if="{{item.zp_flag=='Y'}}">(<font>赠</font>)</block>{{item.googs_name}}/{{item.bar_code}}</view>
+             </view>
+             <view class="name2 o_f-size order-menu">
+                 <view style="width:3%"> </view>
+                 <view> </view>
+                 <view>{{item.unit_price}}</view>
+                 <view>{{item.num}}</view>
+                 <view>{{item.out_amount}}</view>
+             </view>
+         </view>
+         
+         
+     </view>
+     <view class="order-line"></view>
+     <view class="order-width order_title o_f-size">
+         <view>数量合计：{{obj.data.order.total}}</view>
+         <view>原价总额：{{obj.data.order.org_total}}</view>
+         <view>优惠金额：{{obj.data.order.discount}}</view>
+         <view>应收金额：{{obj.data.order.total_amount}}</view>
+     </view>
+     <view class="order-line"></view>
+     <view class="order-line"></view>
+     
+     <view class="order-footer o_f-size order-width">  
+          <view>爱蓓贝客服：4008222620</view>
+          <view>食品类离店概不退换</view>
+          <view>服装用品类不影响二次销售</view>
+          <view>十五天内凭小票可进行调换</view>
+     </view>
+     <view class="order-im">
+       <image src="../../images/txxia.png" class="xia"/>
+     </view>
+  </view>
+  
+  <view class="footer">
+      <view bindtap="index">主页</view>
+      <view bindtap="goods">销售</view>
+  </view>
+</view>

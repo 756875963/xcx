@@ -1,0 +1,105 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="sales">
+    
+	<view class="search">
+	    <view class="search_li">
+		    <image src="../../images/footer-icon-011.png" class="cart-image2"/>
+		    <view class="section">
+			  <input   placeholder-class="phcolor"  maxlength="30" placeholder="商品搜索" focus="true" confirm-type='search' bindconfirm="inputSearch"/>
+			</view>
+		</view>
+		<view class="scanning" bindtap="openScanningC">
+	      <image src="../../images/scanning1.png" class="cart-image"/>
+	    </view>
+	</view>
+   
+	<view class="content">
+	   <view class="main">
+	   <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="scrolltolower"  scroll-into-view="{{toView}}" bindscrolltoupper="scrolltoupper" lower-threshold="50" scroll-top="{{top}}" upper-threshold="20">
+	        <view  class="yeti" wx:if="{{titleS.upperState}}">{{titleS.upperText}}</view>
+	       <view  id="x{{item.num}}" class="li scroll-view-item" wx:for-items="{{data1}}"    wx:for-index="idx" wx:key="userInfoListId">
+	           <div class="li-image" bindtap="imgclick" data-nubmer="{{item.num}}">
+                   <image src="../../images/tms2.png" class="cart-image"/>
+	               <span>{{item.num}}</span>
+	           </div>
+	           <div class="li-text">
+	               <span>
+	                   {{item.description}}
+	               </span>
+	               <div class="li-do">
+	                   <span class="price">￥<font>{{item.price}}</font></span>
+	                   <span class="shoppingCart" bindtap="addgoods" data-point_mode="{{item.point_mode}}" data-fixed_point="{{item.fixed_point}}" data-item_class="{{item.item_class}}" data-item_brand="{{item.item_brand}}" data-goodsId="{{item.goodsId}}" data-item_vip_price="{{item.item_vip_price}}" data-price="{{item.price}}" data-description="{{item.description}}" data-num="{{item.num}}" data-class_name="{{item.class_name}}" data-brand_name="{{item.brand_name}}" data-unit_price="{{item.unit_price}}">加入购物车</span>
+	                   <span class="shoppingCart" bindtap="query_goodsObj" data-goodsObj="{{item}}" >商品详情</span>
+	               </div> 
+	           </div>
+	       </view>
+	       <!--没有信息-->
+	       <view class="error {{errorDis}}">
+	           <image src="../../images/icon_pressed.png" class="cart-image"/><view>没找到相关的商品信息</view>
+	       </view>
+	       <view  class="yeti" wx:if="{{titleS.downState}}">{{titleS.downText}}</view>
+	    </scroll-view>
+	       
+	   </view>
+	</view>
+	
+	<view class="mode" style="display:{{modeFlag}};" bindtap="closeMode2">
+	    <view class="barcode2">
+	      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+	      <view class="barnum">{{mode}}</view>
+	    </view>
+	</view>
+	
+	<view class="shoppingcarticon" bindtap="black_y">
+	    <view class="shoppingsum">{{goodsSum}}</view>
+	    <image src="../../images/footer-icon-03.png" class="cart-image"/>
+	</view>
+	
+	<view class="{{modec}}" bindtap="closeMode">
+	      
+	  <form bindsubmit="formSubmit" bindreset="formReset" catchtap="closeMode1">
+	       <view class="addmodeContent">
+	           <view class="ad_img"> 
+		          <image src="../../images/x1.png" class="cart-image" bindtap="closeMode"/>
+	           </view>
+	          <view class="Content_li" style="display:none;">
+	             <view class="stepper_text"> 
+	                            提货数量
+	             </view>
+	             <view class='stepper'>
+				  <text class='{{minusStatus}}' type='number'  bindtap='bindMinus'  data-flag="t" >-</text>
+				  <input name="commodityPickUp" type="number" bindinput='bindManual' value='{{numT}}' data-flag="t" disabled="true"></input>
+				  <text bindtap='bindPlus'  data-flag="t">+</text>
+				</view>
+	          </view>
+	          <view class="Content_li" style="display:none;">
+	             <view class="stepper_text"> 
+	                            存货数量
+	             </view>
+	             <view class='stepper'>
+				  <text class='{{minusStatus}}' type='number'  bindtap='bindMinus'  data-flag="c" >-</text>
+				  <input  name="commodityStock" type="number" bindinput='bindManual' value='{{numC}}' data-flag="c" disabled="true"></input>
+				  <text bindtap='bindPlus'  data-flag="c">+</text>
+				</view>
+	          </view>
+	          <view class="Content_li">
+	             <view class="stepper_text"> 
+	                            商品总数
+	             </view>
+	             <view class='stepper'>
+				  <text class='{{minusStatus}}' type='number'  bindtap='bindMinus' data-flag="z">-</text>
+				  <input  name="commodityTotal" type="number"  bindinput='bindManual' value='{{numZ}}' data-flag="z" style="background:{{bg}}"></input>
+				  <text bindtap='bindPlus'  data-flag="z" >+</text>
+				</view>
+	          </view>
+	          <view class="button">
+	          
+	          </view>
+	          <view class="btn-area button-pace">
+			    <button formType="submit">确定</button>
+			  </view>
+	       </view>
+	   </form>
+	</view>
+	
+</view>

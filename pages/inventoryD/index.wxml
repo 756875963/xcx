@@ -1,0 +1,26 @@
+
+<view class="sales">
+   <view class="inventory">
+        <!--<view class="bar">
+          <view class="{{tabq.ac1}}" bindtap="tabq" data-flag="1">本店库存</view>
+          <view class="{{tabq.ac2}}" bindtap="tabq" data-flag="2">全部门店库存</view>
+         </view>-->
+	    <view class="inventory-1">
+             <view>商品条码：{{bar_code}}</view>
+             <view>商品名称：{{goodsName}}</view>    
+                <view class="inventory-2-1 menu-i">
+	            <view>门店名称</view>
+	            <view>库存数量</view>
+             </view>    
+	    </view>
+	    
+	    <view class="inventory-2">
+	       <view class="inventory-2-1" wx:for-items="{{list}}"    wx:for-index="idx" wx:key="userInfoListId">
+	            <view>{{item.in_warehouse_name}}</view>
+	            <view>{{item.remain_num}}</view>
+	      </view>
+	      <view class="seat"><!--占位--></view>
+	    </view>
+	</view>
+	
+</view>

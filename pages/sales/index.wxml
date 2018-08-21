@@ -1,0 +1,136 @@
+<view class="sales">
+	<view class="search">
+	    <view class="search_li">
+		    <image src="../../images/footer-icon-011.png" class="cart-image2"/>
+		    <view class="section">
+			  <input   placeholder-class="phcolor"  disabled  maxlength="10" placeholder="商品选择" bindtap="tapClick" data-flag="false"/>
+			</view>
+		</view>
+		<view class="scanning" bindtap="tapClick" data-flag="true">
+	       <image src="../../images/scanning1.png" class="cart-image"/>
+	    </view>
+	     
+	</view>
+    <!--<view class="put_up" bindtap="put_upFcn">
+                挂单
+    </view>-->
+	<view class="sales_main">
+	    <view class="title"></view>
+	    <view class="content_li" wx:for-items="{{shopc}}"    wx:for-index="idx" wx:key="userInfoListId">
+	          <view class="content_li_title" bindtap="radioClick" data-rli="1" data-goodsid="{{item.goodsid}}"  data-flagC="{{item.flag}}">
+	          	<radio-group class="group" bindchange="radioChange">
+				  <view class="label-2">
+				    <radio id="name" hidden value="1" checked="true"></radio>
+				    <label class="label-2__text" for="name" >
+				          <image src="../../images/{{item.img}}.png" class="cart-image"/>
+				    </label>
+				  </view>
+				</radio-group>
+	          </view>
+	          <view class="content_li_main">
+	          	<view class="content_li_text">
+	          	     <view class="content_li_text1">{{item.description}}</view>
+	          	     <view class="cunti">
+	          	           <!--<view class="cunti_li"> <image src="../../images/cun1.png" class="cart-image"/><span>{{item.commodityStock}}</span></view>
+	          	           <view class="cunti_li"> <image src="../../images/ti1.png" class="cart-image"/><span>{{item.commodityPickUp}}</span></view>-->
+	          	           <view class="unit-price">单价：<font>￥{{item.price}}</font></view>
+	          	           <view class="unit-price">会员价：<font>￥{{item.item_vip_price}}</font></view>
+	          	     </view>
+	          	     <view class="cunti_price">
+	          	              <view class="cunti_price_1">总价：<font>￥{{item.total_amt_small}}</font></view>
+	          	              <view class="cunti_sum_2">X<font>{{item.commodityTotal}}</font>件</view>
+	          	     </view>
+	          	</view>
+	          	<view class="content_li_do" >
+	          	      <view bindtap="bianjian" data-goodsid="{{item.goodsid}}" >编辑</view>
+	          	      <view bindtap="deleteShop" data-id="{{item.goodsid}}" >删除</view>
+	          	</view>
+	          </view>
+	    </view>
+	    <!-- 占位 -->
+	    <view class="zhanwei"></view>
+	</view>
+	 <!-- 结算底部（1） -->
+	<view class="sales_footer">
+	   <view class="sales_footer_left" bindtap="radioClick"   data-rli="0" data-qh="{{_image}}">
+	      <image src="../../images/{{_image}}.png" class="cart-image" /><span>全选</span>
+	   </view>
+	   <view class="sales_footer_right">
+	       <view class="price_info">
+	            <view class="price_total">合计：<font>￥{{priceZ}}</font></view>
+	            <view class="tishiprice">优惠金额见结算页面</view>
+	       </view>
+	       <view class="href">
+	           <view class="href_li" bindtap="Settlement">结算({{sum}})</view>
+	       </view>
+	   </view>
+	</view>
+	
+	 <!-- 用户底部（2） -->
+	 <view class="customer-footer">
+       <view class="search">
+		    <view class="search_li">
+			    <image src="../../images/comtmer1.png" class="cart-image2"/>
+			    <view class="section">
+				  <input   placeholder-class="phcolor"  disabled  maxlength="10" placeholder="会员选择" bindtap="custapClick" value="{{vip.name}}" data-flag="false" data-id="{{vip.name}}"  data-name="{{vip.id}}"/>
+				</view> 
+			</view>
+			
+			<view class="scanning" bindtap="custapClick" data-flag="true">
+		      <image src="../../images/scanning1.png" class="cart-image"/>
+		    </view>
+		    <view class="put_up1" bindtap="put_upFcn">挂单</view>
+		</view>
+	 </view>
+	
+	 <!-- 模态框 -->
+	<view class="{{modec}}" bindtap="closeMode">
+	      
+	  <form bindsubmit="formSubmit" bindreset="formReset" catchtap="closeMode1">
+	       
+	       <view class="addmodeContent">
+	           <view class="ad_img"> 
+		          <image src="../../images/x1.png" class="cart-image" bindtap="closeMode"/>
+	           </view>
+	          <view class="Content_li" style="display:none;">
+	             <input  hidden type="text" value="{{goodsid}}" name="goodsid"/>
+	             <view class="stepper_text"> 
+	                            提货数量
+	             </view>
+	             <view class='stepper'>
+				  <text class='{{minusStatus}}' type='number'  bindtap='bindMinus'  data-flag="t" >-</text>
+				  <input name="commodityPickUp" type="number" bindinput='bindManual' value='{{sumS.numT}}' data-flag="t" disabled="true"></input>
+				  <text bindtap='bindPlus'  data-flag="t">+</text>
+				</view>
+	          </view>
+	          <view class="Content_li" style="display:none;">
+	             <view class="stepper_text"> 
+	                            存货数量
+	             </view>
+	             <view class='stepper'>
+				  <text class='{{minusStatus}}' type='number'  bindtap='bindMinus'  data-flag="c" >-</text>
+				  <input  name="commodityStock" type="number" bindinput='bindManual' value='{{sumS.numC}}' data-flag="c" disabled="true"></input>
+				  <text bindtap='bindPlus'  data-flag="c">+</text>
+				</view>
+	          </view>
+	          <view class="Content_li"  >
+	             <view class="stepper_text" > 
+	                                商品总数
+	             </view>
+	             <view class='stepper' >
+				  <text class='{{minusStatus}}' type='number'  bindtap='bindMinus' data-flag="z">-</text>
+				  <input  name="commodityTotal" type="number" bindinput='bindManual' value='{{sumS.numZ}}' data-flag="z" style="background:{{bg}}"></input>
+				  <text bindtap='bindPlus'  data-flag="z" >+</text>
+				</view>
+				 <!--<view class="deleteShop" bindtap="deleteShop" data-id="{{goodsid}}">删除</view>-->
+	          </view>
+	          <view class="button">
+	          
+	          </view>
+	          <view class="btn-area button-pace">
+			    <button formType="submit">确定</button>
+			  </view>
+	       </view>
+	   </form>
+	</view>
+</view>

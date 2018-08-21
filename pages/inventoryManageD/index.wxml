@@ -1,0 +1,37 @@
+<view class="inventory">
+    <!--存货信息-->
+	<view class="li" wx:if="{{!menuFlag}}">
+	    <view class="li-1">
+	         <image src="../../images/cun1.png" class="cart-image2"/>
+	         <view>存货记录</view>
+	    </view>
+	    <view class="li-2">
+	         <view>会员姓名<font>{{user.vip_name}}</font></view>
+	         <view>会员电话<font>{{user.vip_tel}}</font></view>
+	         <view>寄存商品的条形码<font>{{user.in_item_barcode}}</font></view>
+	         <view>寄存商品的名称<font>{{user.in_item_name}}</font></view>
+	         <view>寄存时间<font>{{user.put_time}}</font></view>
+	         <view>寄存数量<font>{{user.in_fact_count}}</font></view>
+	         <view>寄存剩余数量<font>{{user.in_left_num}}</font></view>
+	         <view>寄存营业员<font>{{user.in_emp_man}}</font></view>
+	        
+	    </view>
+	</view>
+	<!--提取信息-->
+	 <!--存货信息-->
+	<view class="li" wx:if="{{menuFlag}}">
+	    <view class="li-1">
+	         <image src="../../images/ti1.png" class="cart-image2"/>
+	         <view>提货记录</view>
+	    </view>
+	    <view class="li-2">
+	         <view>会员姓名<font>{{user.vip_name}}</font></view>
+	         <view>会员电话<font>{{user.vip_tel}}</font></view>
+	         <view>提取商品条形码<font>{{user.out_item_code}}</font></view>
+	         <view>提取商品名称<font>{{user.out_item_name}}</font></view>
+	         <view>提取时间<font>{{user.out_time}}</font></view>
+	         <view>提取数量<font>{{user.out_num}}</font></view>
+	         <view>提取营业员<font>{{user.out_emp_name}}</font></view>
+	    </view>
+	</view>
+</view>

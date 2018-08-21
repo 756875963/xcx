@@ -1,0 +1,74 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="sales">
+	<view class="search">
+	    <view class="search_li">
+		    <image src="../../images/footer-icon-011.png" class="cart-image2"/>
+		    <view class="section">
+			  <input   placeholder-class="phcolor"  maxlength="11" placeholder="会员名/手机号" focus="{{focusState}}" confirm-type='search' bindconfirm="inputSearch" />
+			</view>
+		</view>
+		<view class="scanning" bindtap="openScanningC">
+	      <image src="../../images/scanning1.png" class="cart-image"/>
+	    </view>
+	</view>
+   
+	<view class="content">
+	   <view class="main">
+	     <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="scrolltolower"  scroll-into-view="{{toView}}" bindscrolltoupper="scrolltoupper" lower-threshold="50" scroll-top="{{top}}" upper-threshold="20">
+	       <view id="x{{item.vip_no}}" class="user_li" wx:for-items="{{user}}"    wx:for-index="idx" wx:key="userInfoListId">
+	          <view class="user_li_t">
+	             <image src="../../images/icon_normal.png" class="cart-image"/>
+	          </view>
+	          <view class="user_li_c">
+	                <view class="li_c_n">
+	                  <view> 会员姓名：<font>{{item.vip_name}}</font></view>
+	                  <block wx:if="{{item.in_left_num>0}}">
+	                      <view class="li_c_ji tihou-main" bindtap="tihoumain" data-in_item_barcode="{{item.in_item_barcode}}" data-inleftnum="{{item.in_left_num}}" data-shootNo="{{item.sheet_no}}">
+	                        <view class="tihou">
+	                                                                               提货 
+	                        </view>
+	                      </view>
+	                   </block></view>
+	                <view class="li_c_ip">商品名称：
+	                   <block wx:if="{{item.it_item_name==''}}">
+	                                           暂无信息
+	                   </block>
+	                   <block wx:else>
+	                     {{item.in_item_name}}
+	                   </block>
+	                </view>
+	                <view class="li_c_ip">商品条码：{{item.in_item_barcode}}</view>
+	                <view class="li_c_ip">订单编号：{{item.sheet_no}}</view>
+	                <view class="li_c_ip">寄存时间：{{item.put_time}}</view>
+	                <view class="user_li_c_t">
+	                   <view class="li_c_ji">寄存数量：<font>{{item.in_left_num}}</font></view>
+	                   
+	                </view>
+	          </view>
+	          
+	          <view class="user_li_d" >
+	          
+	                <view class="cun_1" data-vipno="{{item.vip_no}}"  data-vipname="{{item.vip_name}}" data-obj="{{item}}" bindtap="memberDh" data-flag="cun">
+	                                                              存货详情
+	                </view>  
+	                <block wx:if="{{item.out_emp_name!=null}}"> 
+		                <view class="ti_1" data-vipno="{{item.vip_no}}"  data-vipname="{{item.vip_name}}" data-obj="{{item}}" bindtap="memberDh" data-flag="ti">
+		                                                              提货详情
+		                </view>                       
+	                </block>                       
+	          </view>
+	          
+	       </view>
+	       <!--没有信息-->
+	       <view class="error {{errorDis}}">
+	           <image src="../../images/icon_pressed.png" class="cart-image"/><view>没找到相关的寄存信息</view>
+	       </view>
+	       <view  class="yeti" wx:if="{{titleS.downState}}">{{titleS.downText}}</view>
+	       </scroll-view> 
+	   </view>
+	</view>
+	
+	<modal hidden="{{hiddenmodalput}}" title="请输入提货数量" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+      <input placeholder="提货最多数量({{dataSum}})"  name="commodityTotal" type="number" bindinput='bindManual' data-sum="{{dataSum}}" value='{{val12}}'/>  
+    </modal> 
+</view>

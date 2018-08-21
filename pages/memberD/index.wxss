@@ -1,0 +1,225 @@
+page{
+    background:#55d0eb;
+}
+
+.balance{
+	display:flex;
+	width:96%;
+	flex-wrap:wrap;
+	margin-left:2%;
+	border-radius:10px;
+	overflow:hidden;
+	margin-top:2%;
+
+}
+
+
+
+.ban-detail .c_o ,.customer .c_o,.pay_t{
+  width:100%;
+  text-indent:10px;
+  font-size:14px;
+  color:white;
+  height:35px;
+  line-height:35px;
+  border-bottom:1px solid #eee;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  transition:all  ease-in .2s;
+  background: -webkit-linear-gradient(left, #19b7f9, #6acbf4);
+  background: -o-linear-gradient(left, #19b7f9, #6acbf4);
+  background: -moz-linear-gradient(left, #19b7f9, #6acbf4);
+  background: linear-gradient(left, #19b7f9, #6acbf4);
+}
+.customer image{
+ width:15px;
+ height:15px;
+}
+.c_o>view:first-child{
+  display:flex;
+  align-items:center;
+  padding-left:10px;
+  
+}
+.ban-detail .c_o image{
+  width:15px;
+  height:15px;
+}
+
+
+.customer_c_o,.pay_c_o{
+  background:#f1f1f1;
+  width:100%;
+  display:flex;
+  
+  justify-content:center;
+}
+.customer_c_o{
+ flex-wrap:wrap;
+}
+.customer_c_o .c_info{
+display:flex;
+width:100%;
+flex-wrap:wrap;
+font-size:14px;
+
+}
+.name_t1 ,.phone_t1,.price_t1{
+  width:100%; 
+  padding-left:10px;
+}
+.name_t1{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+.name_t1>view{
+ width:50%;
+ font-size:14px;
+ 
+}
+.price_t1{
+ display:flex;
+ flex-wrap:nowrap;
+}
+.name_t1 image{
+ width:30px;
+ height:30px;
+ border-radius:15px;
+
+}
+.c_o_t {
+ width:100%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+ position:relative;
+ 
+}
+.cart-image12{
+ width:100%!important;
+position:absolute;
+height:100%!important;
+ left:0;
+ right:0;
+ top:0;
+ bottom:0;
+ border-radius:0!important;
+}
+.c_o_t image{
+ width:30px;
+ height:30px;
+ border-radius:15px;
+}
+
+.c_info>view{
+ color:#333;
+ padding:5px;
+}
+.price_t1>view{
+ width:50%;
+}
+
+.price_t1>view>font{
+  color:#d51d20;
+  font-weight:600;
+ }
+ .pay{
+ 
+ }
+ 
+.pay .pay_t>view:first-child {
+display:flex;
+align-items:center;
+padding-left:10px;
+
+}
+
+.pay .pay_t>view image{
+ width:15px;
+height:15px;
+ 
+}
+.pay_items {
+   display:flex;
+   width:100%;
+   padding:5px 0;
+   flex-wrap:wrap;
+   
+ }
+ .pay_items .pay_node{
+   display:flex;
+   align-items:center;
+   font-size:14px;
+   color:#333;
+   width:100%;
+	height:40px;
+	line-height:40px;
+ }
+  .pay_items .pay_node image{
+  width:20px;
+  height:20px;
+  margin:0 5px;
+  
+  }
+  .zanwei{
+  width:100%;
+  height:45px;
+  }
+  .cus_juan{
+   width:100%;
+   padding-left:10px;
+   display:flex;
+  }
+  .cus_juan_li >view{
+   display:flex;
+   height:25px;
+   line-height:25px;
+   align-items:center;
+   justify-content:flex-end;
+   padding-right:5px;
+	font-size:12px;
+	color:#666;
+
+  }
+  .cus_juan_ti{
+   height:25px;
+   line-height:25px;
+  
+  }
+  .cus_juan_li{
+	display:flex;
+	align-items:center;
+	justify-content:flex-start;
+	flex-wrap:wrap;
+	width:80%;
+  }
+ 
+
+.c_o_ti{
+position:relative;
+width:60px;
+height:60px;
+
+}
+.c_o_ti image{
+ position:absolute;
+}
+.c_o_ti image:first-child{
+ width:60px;
+ height:60px;
+ z-index:2;
+ top:-20px;
+}
+.c_o_ti image:last-child{
+ width:40px;
+height:40px;
+border-radius:20px;
+bottom:0px;
+left:10px;
+z-index:1;
+ box-shadow: 0px 0px 10px #eedf0a;
+}

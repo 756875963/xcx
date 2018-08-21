@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "库存查询",
+    "pages":[
+     "pages/inventoryD/index"
+    ]
+}

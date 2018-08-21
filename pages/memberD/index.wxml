@@ -1,0 +1,70 @@
+
+<view class="balance">
+    <!--会员信息-->
+    <view class="customer">
+        <view class="c_o">
+            <view> <image src="../../images/customer11.png" class="cart-image"/>
+          	<view>会员信息</view>
+          	</view>
+          	<!--<image src="../../images/righta1.png" class="cart-image"/>-->
+        </view>
+        <view class="customer_c_o">
+          <view class="c_o_t" >
+              <image src="../../images/bg11ss1.jpg" class="cart-image12"/>
+              <view class="c_o_ti" >
+              <block wx:if="{{_memberdata.vip_type1=='数据加载中'}}">
+                   <image src="../../images/png100.png" class="cart-image"/>
+              </block>
+              <block wx:if="{{_memberdata.vip_type1=='银牌会员'}}">
+                   <image src="../../images/tou2.png" class="cart-image"/>
+              </block>
+               <block wx:if="{{_memberdata.vip_type1=='金牌会员'}}">
+                   <image src="../../images/tou3.png" class="cart-image"/>
+              </block>
+               <block wx:if="{{_memberdata.vip_type1=='白金会员'}}">
+                   <image src="../../images/tou4.png" class="cart-image"/>
+              </block>
+               <block wx:if="{{_memberdata.vip_type1=='钻石会员'}}">
+                   <image src="../../images/tou1.png" class="cart-image"/>
+               </block>
+              <image src="../../images/customer11.png" class="cart-image"/>
+             </view>
+          </view>
+          <view class="c_info">
+              <view class="name_t1"> 
+	          	  <view>会员等级:{{_memberdata.vip_type1}}</view>
+	          	  <view>会员姓名:{{_memberdata.vip_name}}</view>
+          	  </view>
+          	  <view class="name_t1"> 
+	          	  <view>宝宝姓名:{{_memberdata.vip_bbname}}</view>
+	          	  <view wx:if="{{_memberdata.vip_bbsex!=''}}">宝宝性别:{{_memberdata.vip_bbsex}}</view>
+	          	  <view wx:else>宝宝性别:未填写</view>
+          	  </view>
+          	   
+          	    <view class="name_t1"> 
+	          	  <view>出生日期:{{_memberdata.vip_bbbirth}}</view>
+	          	  <view>手机号码:{{_memberdata.vip_tel1}}</view>
+          	  </view>
+          	 
+          	  
+          	
+          	  <view class="price_t1">
+          	       <view>余额：<font>{{_memberdata.save_amt}}</font></view>
+          	       <view>积分：<font>{{_memberdata.vip_point}}</font></view>
+          	  </view>
+          	  <!--<view class="cus_juan">
+          	       <view class="cus_juan_ti">优惠劵：</view>
+          	       <view class="cus_juan_li">
+          	          <view  wx:for-items="{{_memberdata.StockList}}"    wx:for-index="idx" wx:key="userInfoListId">
+	          	          <image src="../../images/iconfont-cardh1.png" class="juan-image"/>
+	          	          <view>{{item.StampType_name}}</view>
+          	          </view>
+          	          <view wx:if="{{_memberdata.StockList.length==0}}" >
+          	                                 暂无优惠劵信息
+          	          </view>
+          	       </view>
+          	  </view>-->
+          </view>
+        </view>
+        </view>
+</view>

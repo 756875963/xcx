@@ -1,0 +1,27 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="sales">
+	<view class="content">
+	   <view class="main">
+	       <view class="user_li"     wx:for-items="{{put_upList}}"  wx:for-index="idx" wx:key="userInfoListId">
+	          <view class="user_li_t">
+	             <image src="../../images/customer1.png" class="cart-image"/>
+	          </view>
+	          <view class="user_li_c">
+	                <view class="li_c_n">挂单会员：<font>{{item.vip.name}}</font></view>
+	                <view class="li_c_ip">会员编号：<font>{{item.vip.id}}</font></view>
+	                
+	          </view>
+	          <view  class="user_li_d red"  data-id="{{item.vip.id}}" bindtap="delete">
+	                                 删除
+	          </view>
+	          <view  class="user_li_d"  data-id="{{item.vip.id}}" bindtap="Settlement">
+	                                  结算
+	          </view>
+	       </view>
+	       <!--没有信息-->
+	       <view class="error {{errorDis}}">
+	           <image src="../../images/icon_pressed.png" class="cart-image"/><view>没找到相关的挂单信息</view>
+	       </view>
+	   </view>
+	</view>
+</view>

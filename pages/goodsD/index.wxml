@@ -1,0 +1,65 @@
+
+<view class="balance">
+    <!--会员信息-->
+    <view class="customer">
+        <view class="c_o">
+            <view> <image src="../../images/goodsO.png" class="cart-image"/>
+          	<view>商品信息</view>
+          	</view>
+          	<!--<image src="../../images/righta1.png" class="cart-image"/>-->
+        </view>
+        <view class="customer_c_o">
+          <view class="c_info">
+              <view class="name_t1"> 
+	          	  <view>商品品牌名称:</view><view>{{goodsObj.brand_name}}</view>
+          	  </view>
+          	  <!--<view class="name_t1"> 
+          	  <view>商品专柜:</view><view>{{goodsObj.counter_no}}</view>
+          	  </view>-->
+          	  <view class="name_t1"> 
+	          	  <view>上架时间：</view><view>{{goodsObj.create_date}}</view>
+          	  </view>
+          	   <view class="name_t1"> 
+          	   <view>商品条码:</view><view>{{goodsObj.item_barcode}}</view>
+          	  </view>
+          	    <view class="name_t1"> 
+	          	  <view>商品品牌编号:</view><view>{{goodsObj.item_brand}}</view>
+          	  </view>
+          	  <view class="name_t1"> 
+          	   <view>商品类别:</view><view>{{goodsObj.item_class}}</view>
+          	  </view>
+          	   <!--<view class="name_t1"> 
+	          	  <view>商品进价:</view><view>{{goodsObj.item_in_price}}元</view>
+          	  </view>-->
+          	  <view class="name_t1"> 
+          	   <view>商品名称:</view><view>{{goodsObj.item_name}}</view>
+          	  </view>
+          	   <view class="name_t1"> 
+	          	  <view>商品编号:</view><view>{{goodsObj.item_no}}</view>
+          	  </view>
+          	  <!--<view class="name_t1"> 
+          	   <view>商品批发价:</view><view>{{goodsObj.item_pf_price}}元</view>
+          	  </view>-->
+          	   <view class="name_t1"> 
+	          	  <view>商品规格:</view><view>{{goodsObj.item_size}}</view>
+          	  </view>
+          	  
+          	  <view class="name_t1"> 
+          	  <view>商品状态:</view><view>{{goodsObj.item_type}}</view>
+          	  </view>
+          	   <view class="name_t1"> 
+	          	  <view>会员价:</view><view>{{goodsObj.item_vip_price}}元</view>
+          	  </view>
+          	  <view class="name_t1"> 
+	          	  <view>商品原价:</view><view>{{goodsObj.item_sale_price}}元</view>
+          	  </view>
+          	  <view class="name_t1">
+                  <view>最低销售:</view><view>{{goodsObj.item_updown_price}}元</view>
+          	  </view>
+          	  <view class="name_t1"> 
+	          	  <view>商品单位:</view><view>{{goodsObj.item_unit_no}}</view>
+          	  </view>
+          </view>
+        </view>
+        </view>
+</view>

@@ -1,0 +1,8 @@
+<view class="container">
+<view class="userinfo">
+<view class="userinfo-avatar">
+<image src="../../images/timg1.png" class="cart-image"/>
+</view><div>爱蓓贝</div></view>
+<view><div class="warn-info">
+<span>无权限访问,请联系爱蓓贝管理人员</span></div></view>
+<div class="footer">爱蓓贝</div></view>

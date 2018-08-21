@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "商品信息",
+    "pages":[
+      "pages/goodsD/index"
+    ]
+}

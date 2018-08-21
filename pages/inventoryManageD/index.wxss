@@ -1,0 +1,53 @@
+page{
+background:#55d0eb;
+}
+.inventory{
+  display:flex;
+  width:100%;
+  flex-wrap:wrap;
+}
+.inventory .li{
+  display:flex;
+  width:98%;
+  margin-left:1%;
+  margin-top:1%;
+  background:white;
+  border-radius:10px;
+  flex-wrap:wrap;
+  overflow:hidden;
+  
+}
+.inventory .li .li-1 ,.inventory .li .li-2{
+  display:flex;
+  width:100%;
+  font-size:14px;
+  align-items:center;
+}
+.inventory .li .li-1{
+  height:30px;
+  color:white;
+  background: -webkit-linear-gradient(left, #19b7f9, #6acbf4);
+  background: -o-linear-gradient(left, #19b7f9, #6acbf4);
+  background: -moz-linear-gradient(left, #19b7f9, #6acbf4);
+  background: linear-gradient(left, #19b7f9, #6acbf4);
+}
+.inventory .li .li-2{
+  flex-wrap:wrap;
+  
+}
+.inventory .li .li-2 >view{
+ display:flex;
+ height:30px;
+ width:100%;
+ justify-content:space-between;
+ padding:0 5px;
+ align-items:center;
+ color:#333;
+}
+.inventory .li .li-2 >view:nth-child(odd){}
+.inventory .li .li-2 >view:nth-child(even){background:#eee;}
+.inventory .li .li-1 image{
+ margin:0 5px;
+ width:40px;
+ height:20px;
+}

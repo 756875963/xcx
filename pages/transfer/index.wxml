@@ -1,0 +1,8 @@
+<view class="transfer">
+
+  <image src="../../images/timg1.png" class="cart-image"/>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="transfer-button" style="display:{{button_show}}">
+       授权
+  </button>
+
+</view>

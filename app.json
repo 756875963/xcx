@@ -1,0 +1,34 @@
+{
+  "pages":[
+    
+    "pages/transfer/index",
+    "pages/statistics/index",
+    "pages/inventoryManage/index",
+    "pages/inventoryManageD/index",
+    "pages/index/index",
+    "pages/memberD/index",
+    "pages/inventory/index",
+    "pages/inventoryD/index",
+    "pages/goodsD/index",
+    "pages/member/index",
+    "pages/goodsSearch/index",
+    "pages/balance/index",
+    "pages/sales/index",
+    "pages/suspend/index",
+    "pages/underReview/index",
+    "pages/registered/index",
+    "pages/danger/index",
+    "pages/orderD/index",
+    "pages/orderD2/index"
+  ],
+  "window":{
+   "navigationBarBackgroundColor": "#55d0eb",
+    "backgroundTextStyle":"white",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "客汇收银",
+    "navigationBarBackgroundColor": "#292929",
+    "backgroundColor": "#55d0eb",
+    "enablePullDownRefresh": true
+  },
+  "debug": true
+}

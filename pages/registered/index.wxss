@@ -1,0 +1,55 @@
+page{
+  backgoround-color:#fff;
+  
+
+}
+.registered{
+  
+  text-align:center;
+  position:absolute;
+  height:100%;
+  width:100%;
+}
+.cart-image{
+  width:80px;
+  height:80px;
+  margin-top:20%;
+}
+.cart-image2{
+  width:20px;
+  height:20px;
+}
+.logo{
+  width:100px;
+  height:100px;
+}
+.input_div{
+  display:flex;
+  justify-content:center;
+}
+
+.input_div input{
+  text-align:left;
+  padding-left:10px;
+  background:#fff;
+  margin-left:10px
+}
+.submit button{
+	width:218px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+}
+.submit {
+   padding-top:10%;
+}
+.transfer-button{
+  background:#19b7f9;
+  color:white;
+  width:80%;
+  
+}
+.transfer-button:active{
+   box-shadow:0px 0px 10px 1px white inset;
+    text-shadow:0px 0px 5px black;
+}

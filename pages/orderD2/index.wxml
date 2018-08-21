@@ -1,0 +1,108 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="balance">
+    <view class="ban-detail">
+        <view class="c_o {{zhankai}}" bindtap="goods_zhan">
+           <view><image src="../../images/iconfont-dingdan.png" class="cart-image"/>
+          	<view>订单信息</view>
+          	</view>
+        </view>
+        <view class="order-li {{goodsHeight}}" wx:for-items="{{goodsList}}"    wx:for-index="idx" wx:key="userInfoListId">
+            <view class="order-li-1">
+              <view class="num" style="width:20px;padding-top:0px;">
+                 <block wx:if="{{item.zp_flag=='Y'}}"><image src="../../images/zeng2.png" class="cart-image" style="width:35px;height:35px;"/></block>
+              </view>
+              <view class="mid">
+                 <view class="content_li_text1">品名：{{item.googs_name}}</view>
+                 <view class="cunti">
+                       <view class="x_sum" style="color:#666;font-size:14px;padding:5px;">条码：{{item.bar_code}} </view>
+	          	 </view>
+                 <view class="juan">
+                 </view>
+              </view>    
+              <view class="price">
+	               <view>￥{{item.unit_price}}</view>
+	               <view class="x_sum">x{{item.num}}</view>
+	               <view>￥{{item.num}}</view>
+              </view>
+              
+              
+             </view>
+             <view class="zijsjk"></view>
+        </view>
+        <!--赠送商品-->
+        <view class="order-li {{goodsHeight}}"  style="height:100px;" wx:if="{{givegoodsList[0].item_name!=null}}" wx:for-items="{{givegoodsList}}"    wx:for-index="idx" wx:key="userInfoListId">
+         <view class="order-li-1">
+             <view class="num" style="width:20px;padding-top:0px;">
+                <image src="../../images/zeng2.png" class="cart-image" style="width:35px;height:35px;"/>
+             </view>
+             <view class="mid" style="border-bottom:none;">
+                 <view class="content_li_text1">{{item.item_name}}</view>
+                 <view class="cunti">
+                    <view style="font-size:13px;color:#333;">商品条码：{{item.barcode}}</view>
+	          	 </view>
+             </view>    
+             <view class="price" style="border-bottom:none;">
+               <view>￥{{item.item_sale_price}}</view>
+               <view class="x_sum">x{{item.count}}</view>
+               <view style="text-decoration:line-through;">￥{{item.item_sale_price*item.count}}</view>
+             </view>
+             </view>
+             <view class="order-li-2">
+             </view>
+        </view>
+        
+         <!--赠送礼券-->
+        <view class="order-li {{goodsHeight}}" style="height:55px;" wx:for-items="{{giveLqNameList}}"    wx:for-index="idx" wx:key="userInfoListId"  wx:if="{{giveLqNameList[0]!=null}}">
+           <view class="order-li-1">
+             <view class="num" style="width:20px;padding-top:0px;">
+                <image src="../../images/zeng2.png" class="cart-image" style="width:35px;height:35px;"/>
+             </view>
+             <view class="mid" >
+                 <view class="content_li_text1 content_li_update">
+                  <image src="../../images/iconfont-cardh1.png" class="juan-image"/>
+                  <view>{{item}}</view>
+                  </view>
+             </view>    
+             <view class="price juan_price1">
+               <view class="x_sum">x1张</view>
+             </view>
+             </view>
+             <!--<view class="order-li-2">
+             </view>-->
+        </view>
+        
+        <!--价格计算-->
+        <view class="total-price">
+          <view><view>会员信息</view><view >{{order.vip_no+"  "+order.vip_name}}</view></view>
+          <view><view>商品总价</view><view class="price-remove">￥{{order.org_total}}</view></view>
+          <block wx:if="{{promotional_price!=0}}"><view><view>促销优惠</view><view>-￥{{order.discount}}</view></view></block>
+          <block ><view><view>商品总数</view><view  class="color-red">{{order.total}}</view></view></block>
+          <!--<block wx:if="{{total_point!=0}}"><view><view>返回积分</view><view  class="color-red">+{{order.total_point}}</view></view></block>-->
+          <view><view>订单总价</view><view class="color-red">￥{{order.total_amount}}</view></view>
+          <view><view>操作时间</view><view >{{order.create_time}}</view></view>
+        </view>
+    </view>
+    
+    <!--库存变动-->
+    <view class="customer" wx:if="{{depositList['0']!=null}}">
+        <view class="c_o">
+            <view><image src="../../images/iconfont-dingdan.png" class="cart-image"/>
+          	<view>库存变动</view>
+          	</view>
+          	<!--<image src="../../images/righta1.png" class="cart-image"/>-->
+        </view>
+        <view class="customer_c_o">
+          <view class="c_info">
+          	  <view class="cus_juan" style="padding-left:0px;">
+          	       <view class="cus_juan_li cus_juan_update1">
+          	          <view style="width:100%;" wx:for-items="{{depositList}}"    wx:for-index="idx" wx:key="userInfoListId" data-item="{{item}}"  bindtap="promotionalclick">
+	          	          <view class="juan_text">
+	          	              {{"品名："+item.item_name+"，本次存入："+item.fact_count+"。"}}
+	          	          </view>
+          	          </view>
+          	       </view>
+          	  </view>
+          </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,5 @@
+{
+    "navigationBarTitleText": "寄存提货",
+    "pages":[
+    "pages/inventoryManageD/index"]
+}

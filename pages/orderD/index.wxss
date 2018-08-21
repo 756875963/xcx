@@ -1,0 +1,143 @@
+page{
+    background:#55d0eb;
+}
+.footer{
+   position:fixed;
+   bottom:5px;
+   width:100%;
+   display:flex;
+   justify-content:space-around;
+}
+
+.footer>view{
+   padding:5px 40px;
+   font-size:15px;
+   transition:all 0.5s;
+}
+.footer>view:nth-child(1){
+   border:1px solid black; 
+
+}
+.footer>view:nth-child(1):active{
+   border:1px solid black;
+   background: black;
+   color:white;
+}
+.footer>view:nth-child(2){
+   background:black;
+   color:white;
+}
+.footer>view:nth-child(2):active{
+   background:rgba(0,0,0,0);
+   color:black;
+   border:1px solid black;
+}
+.order-main{
+   background:white;
+   width:80%;
+   margin:20px 10% 50px 10%; 
+   box-shadow:10px 10px 5px rgba(0,0,0,.5);
+   display:flex;
+   jusity-content:center;
+   flex-wrap:wrap;
+   align-content:flex-start;
+   
+}
+.order_branch{
+   display:flex;
+   width:100%;
+   font-size:12px;
+   justify-content:center;
+   height:60px;
+   align-items:center;
+   font-weight:700;
+}
+.order-line{
+   height:3px;
+   width:90%;
+   border-top:2px dotted black;
+   margin:0 auto;
+   
+}
+.order-width{
+  width:90%;
+  margin:0 auto;
+} 
+.o_f-size{
+  font-size:12px;
+  font-weight:700;
+}
+.order_title{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  margin:10px auto;
+
+}
+.order_title>view{
+ margin-right:20px;
+ min-width:30%;
+ 
+}
+.order-menu{
+ display:flex;
+ justify-content:space-around;
+}
+
+.goodsli> .name1{ 
+	word-break:break-all;
+	text-overflow:hidden;
+	display:flex;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:2;
+	overflow:hidden;
+	align-content:center;
+	align-items:center;
+}
+.goodsli> .name2{
+    margin:3px 0;
+}
+.goodsli> .name1 >font{
+     font-size:13px;
+     font-weight:800;
+}
+.order-menu>view{
+  width:25%;
+  text-align:center;
+}
+.goodsli{
+  margin:2px 0;
+}
+.order-footer{
+  margin:20px auto;
+}
+.order-footer>view{
+ text-align:center;
+ 
+}
+.bg-cs{
+  font-size:16px;
+  font-weight:700;
+}
+.name2-1{
+  flex-shrink:0;
+  margin-right:3px;
+}
+.order-im{
+  height:5px;
+  width:100%;
+  position:relative
+}
+.order-im> .shang{
+  height:5px;
+  width:100%;
+  position:absolute;
+  top:-5px;
+  
+}
+.order-im> .xia{
+  height:5px;
+  width:100%;
+  position:absolute;
+  bottom:-5px;
+}

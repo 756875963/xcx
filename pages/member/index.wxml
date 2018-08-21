@@ -1,0 +1,45 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="sales">
+	<view class="search">
+	    <view class="search_li">
+		    <image src="../../images/footer-icon-011.png" class="cart-image2"/>
+		    <view class="section">
+			  <input   placeholder-class="phcolor"  maxlength="11" placeholder="会员名/手机号" focus="{{focusState}}" confirm-type='search' bindconfirm="inputSearch" />
+			</view>
+		</view>
+		<view class="scanning" bindtap="openScanningC">
+	      <image src="../../images/scanning1.png" class="cart-image"/>
+	    </view>
+	</view>
+   
+	<view class="content">
+	   <view class="main">
+	     <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="scrolltolower"  scroll-into-view="{{toView}}" bindscrolltoupper="scrolltoupper" lower-threshold="50" scroll-top="{{top}}" upper-threshold="20">
+	       <view id="x{{item.vip_no}}" class="user_li" wx:for-items="{{user}}"    wx:for-index="idx" wx:key="userInfoListId">
+	          <view class="user_li_t">
+	             <image src="../../images/customer1.png" class="cart-image"/>
+	          </view>
+	          <view class="user_li_c">
+	                <view class="li_c_n">会员姓名：<font>{{item.vip_name}}</font></view>
+	                <view class="li_c_ip">手机号码：<font>{{item.vip_tel1}}</font></view>
+	                <view class="user_li_c_t">
+	                   <view class="li_c_ji">账户积分：<font>{{item.balance}}</font></view>
+	                   <view class="li_c_yu">账户余额：<font>{{item.integral}}</font></view>
+	                </view>
+	          </view>
+	          <view wx:if="{{focusState}}" class="user_li_d" data-vipno="{{item.vip_no}}"  data-vip_birth="{{item.vip_birth}}" data-type_id="{{item.type_id}}" data-vipname="{{item.vip_name}}" bindtap="addCustomer">
+	                 <image src="../../images/add12.png" class="cart-image"/>
+	          </view>
+	          <view wx:if="{{!focusState}}" class="user_li_d" data-vipno="{{item.vip_no}}"  data-vipname="{{item.vip_name}}" bindtap="memberDh">
+	                                  详情
+	          </view>
+	       </view>
+	       <!--没有信息-->
+	       <view class="error {{errorDis}}">
+	           <image src="../../images/icon_pressed.png" class="cart-image"/><view>没找到相关的会员信息</view>
+	       </view>
+	       <view  class="yeti" wx:if="{{titleS.downState}}">{{titleS.downText}}</view>
+	       </scroll-view> 
+	   </view>
+	</view>
+</view>

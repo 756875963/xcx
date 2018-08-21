@@ -1,0 +1,21 @@
+page{
+  backgoround-color:#fff;
+}
+.transfer{
+  margin-top:30%;
+  text-align:center;
+}
+.transfer image{
+  width:200px;
+  height:200px;  
+}
+.transfer-button{
+  background:#19b7f9;
+  color:white;
+  width:80%;
+  margin-right:10%;
+}
+.transfer-button:active{
+   box-shadow:0px 0px 10px 1px white inset;
+    text-shadow:0px 0px 5px black;
+}

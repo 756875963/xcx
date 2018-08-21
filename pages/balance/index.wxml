@@ -1,0 +1,312 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="balance">
+    <!--<view class="ban-title">
+       <image src="../../images/logo.png" class="cart-image"/>
+       <image src="http://i2.bvimg.com/656121/375d542e41465e97.png" class="cart-image"/>
+       <view class="text">爱蓓贝-张家店</view>
+       <image src="../../images/righta1.png" class="cart-image"/>
+       <image src="http://i2.bvimg.com/656121/4d6f5083455f2dd0.png" class="cart-image"/>
+       <view class="text">营业员-丁伟</view>
+    </view>-->
+    <view class="ban-detail">
+        <view class="c_o {{zhankai}}" bindtap="goods_zhan">
+           <view> <image src="../../images/iconfont-dingdan.png" class="cart-image"/>
+          	<view>商品信息</view>
+          	</view>
+          	<image src="../../images/whiteRw.png" class="cart-image45"/>
+        </view>
+        <view class="order-li {{goodsHeight}}" wx:for-items="{{goodsList}}"    wx:for-index="idx" wx:key="userInfoListId">
+            <view class="order-li-1">
+              <view class="num"></view>
+              <view class="mid">
+                 <view class="content_li_text1">{{item.description}}</view>
+                 <view class="cunti">
+                     <view class="cunti_li" wx:if="{{item.commodityStock!=0}}"> <image src="../../images/cun1.png" class="cart-image"/><span>{{item.commodityStock}}</span></view>
+	          	     <view class="cunti_li" wx:if="{{item.commodityPickUp!=0}}"> <image src="../../images/ti1.png" class="cart-image"/><span>{{item.commodityPickUp}}</span></view>
+	          	     <view class="cunti_li" wx:if="{{item.vip_point!='+0'}}"> <image src="../../images/jifen.png" class="cart-image"/><span>+{{item.vip_point}}</span></view>
+	          	 </view>
+                 <view class="juan">
+                 </view>
+              </view>    
+              <view class="price">
+	               <block wx:if="{{vipinfo.id=='000000000000'}}"><view>￥{{item.price}}</view></block>
+	               <block wx:if="{{vipinfo.id!='000000000000'}}"><view>￥{{item.item_vip_price}}</view></block>
+	               <view class="x_sum">x{{item.commodityTotal}}</view>
+	               <block wx:if="{{item.depositRate!='0'}}"><view class="x_sum">-{{item.depositRate}}</view></block>
+	               <view>￥{{item.total_amt_small}}</view>
+              </view>
+              <view class="line-3"></view>
+             </view>
+             <view class="order-li-2">
+                   <view class="shoppingCart" bindtap="bianjian" data-goodsid="{{item.goodsid}}">寄存操作</view>
+             </view>
+        </view>
+        <!--赠送商品-->
+        <view class="order-li {{goodsHeight}}"  style="height:100px;" wx:if="{{givegoodsList[0].item_name!=null}}" wx:for-items="{{givegoodsList}}"    wx:for-index="idx" wx:key="userInfoListId">
+         <view class="order-li-1">
+             <view class="num" style="width:20px;padding-top:0px;">
+                <image src="../../images/zeng2.png" class="cart-image" style="width:35px;height:35px;"/>
+             </view>
+             <view class="mid" style="border-bottom:none;">
+                 <view class="content_li_text1">{{item.item_name}}</view>
+                 <view class="cunti">
+                    <view style="font-size:13px;color:#333;">商品条码：{{item.barcode}}</view>
+	          	 </view>
+             </view>    
+             <view class="price" style="border-bottom:none;">
+               <view>￥{{item.item_sale_price}}</view>
+               <view class="x_sum">x{{item.count}}</view>
+               <view style="text-decoration:line-through;">￥{{item.item_sale_price*item.count}}</view>
+             </view>
+             </view>
+             <view class="order-li-2">
+             </view>
+        </view>
+        
+         <!--赠送礼券-->
+        <view class="order-li {{goodsHeight}}" style="height:55px;" wx:for-items="{{givepromotionalList}}"    wx:for-index="idx" wx:key="userInfoListId"  wx:if="{{givepromotionalList[0].give_couponType!=null}}">
+           <view class="order-li-1">
+             <view class="num" style="width:20px;padding-top:0px;">
+                <image src="../../images/zeng2.png" class="cart-image" style="width:35px;height:35px;"/>
+             </view>
+             <view class="mid" >
+                 <view class="content_li_text1 content_li_update">
+                  <image src="../../images/iconfont-cardh1.png" class="juan-image"/>
+                  <view>{{item.StampType_name}}</view>
+                  </view>
+             </view>    
+             <view class="price juan_price1">
+               <view class="x_sum">x{{item.give_couponCount}}张</view>
+             </view>
+             </view>
+             <!--<view class="order-li-2">
+             </view>-->
+        </view>
+        
+        <!--价格计算-->
+        <view class="total-price">
+          <view><view>商品总价</view><view class="price-remove">￥{{total_amt}}</view></view>
+          <block wx:if="{{promotional_price!=0}}"><view><view>促销优惠</view><view>-￥{{promotional_price}}</view></view></block>
+          <block wx:if="{{lq_price!=0}}"><view><view>礼券优惠</view><view>-￥{{lq_price}}</view></view></block>
+          <block wx:if="{{orderTotlaz!=0}}"><view><view>折扣优惠</view><view>-￥{{orderTotlaz}}</view></view></block>
+          <block wx:if="{{total_point!=0}}"><view><view>返回积分</view><view  class="color-red">+{{total_point}}</view></view></block>
+          <view><view>订单总价</view><view class="color-red">￥{{order_amt}}</view></view>
+        </view>
+    </view>
+    <!--会员信息-->
+    <view class="customer">
+        <view class="c_o">
+            <view> <image src="../../images/customer11.png" class="cart-image"/>
+          	<view>会员信息</view>
+          	</view>
+          	<!--<image src="../../images/righta1.png" class="cart-image"/>-->
+        </view>
+        <view class="customer_c_o">
+          <view class="c_o_t">
+              <image src="../../images/customer1.png" class="cart-image"/>
+          </view>
+          <view class="c_info">
+              <view class="name_t1"> 
+	          	  <view>会员姓名:{{vipinfo.vip_name}}</view>
+          	  </view>
+          	  <view class="phone_t1"> 
+	          	  <view>手机号码:{{vipinfo.vip_tel}}</view>
+          	  </view>
+          	  <view class="price_t1">
+          	       <view>余额：<font>{{vipinfo.save_amt==null?0:vipinfo.save_amt}}</font></view>
+          	       <view>积分：<font>{{vipinfo.point==null?0:vipinfo.point}}</font></view>
+          	  </view>
+          	  <view class="cus_juan" wx:if="{{lq!=null&&lq.length!=0}}">
+          	       <view class="cus_juan_ti">礼劵:</view>
+          	       <view class="cus_juan_li cus_juan_update">
+          	          <view wx:for-items="{{lq}}"    wx:for-index="idx" wx:key="userInfoListId" data-lq="{{item}}" bindtap="promotionalclicktwo">
+	          	          <image src="../../images/{{item.active=='false'?'gnact1':'gactive'}}.png" class="cart-image"/>
+	          	          <image src="../../images/iconfont-cardh1.png" class="juan-image"/>
+	          	          <view>{{item.StampType_name}}</view>
+          	          </view>
+          	       </view>
+          	  </view>
+          </view>
+        </view>
+    </view>
+    <!--促销信息-->
+    <view class="customer" wx:if="{{promotional['0'].active!=null}}">
+        <view class="c_o">
+            <view> <image src="../../images/cutitle1.png" class="cart-image"/>
+          	<view>促销信息</view>
+          	</view>
+          	<!--<image src="../../images/righta1.png" class="cart-image"/>-->
+        </view>
+        <view class="customer_c_o">
+          <view class="c_info">
+          	  <view class="cus_juan" style="padding-left:0px;">
+          	       <view class="cus_juan_li cus_juan_update1">
+          	          <view style="width:100%;" wx:for-items="{{promotional}}"    wx:for-index="idx" wx:key="userInfoListId" data-item="{{item}}"  bindtap="promotionalclick">
+	          	          <image src="../../images/{{item.active=='false'?'gnact1':'gactive'}}.png" class="cart-image"/>
+	          	          <image src="../../images/cu1.png" class="juan-image"/>
+	          	          <view class="juan_text">
+	          	         <!--pj类型--> 
+	          	         <block wx:if="{{item.flag=='PJ'}}">
+	          	            {{item.flag}}型<block wx:if="{{item.discount_way_name=='统一折扣'}}">
+	          	                     {{item.discount_way_name}}-针对
+	          	                     <block wx:if="{{item.item_type=='单品'}}">
+	          	                      ({{item.item_type}})
+	          	                           <block wx:if="{{item.is_priceWay=='Y'}}">
+	          	                                                                           金额优惠
+	          	                           </block>
+	          	                           <block wx:else>
+	          	                                                                           折扣优惠
+	          	                           </block>
+	          	                      </block>
+	          	                      <block wx:if="{{item.item_type=='类别'}}">
+	          	                      ({{item.item_type}})
+	          	                      <block wx:if="{{item.is_priceWay=='Y'}}">
+	          	                                                                          金额优惠
+	          	                           </block>
+	          	                           <block wx:else>
+	          	                                                                          折扣优惠
+	          	                           </block>
+			          	              </block>
+			          	              <block wx:if="{{item.item_type=='品牌'}}">
+			          	               ({{item.item_type}})  
+			          	               <block wx:if="{{item.is_priceWay=='Y'}}">
+	          	                                                                           金额优惠
+	          	                           </block>
+	          	                           <block wx:else>
+	          	                                                                           折扣优惠
+	          	                           </block> 
+			          	              </block>
+			          	              <block wx:if="{{item.item_type=='全部'}}">
+			          	               (总订单)    
+			          	               <block wx:if="{{item.is_priceWay=='Y'}}">
+	          	                                                                           金额优惠
+	          	                           </block>
+	          	                           <block wx:else>
+	          	                                                                           折扣优惠
+	          	                           </block> 
+			          	              </block>
+	          	                </block>
+	          	                                         折扣系数[
+	          	                    <block wx:if="{{item.step_num1!='0'}}">
+	          	                         {{item.step_num1 +'-'+ item.step_rate1}},                                      
+	          	                    </block> 
+	          	                    <block wx:if="{{item.step_num2!='0'}}">
+	          	                         {{item.step_num2 +'-'+ item.step_rate2}},  
+	          	                    </block>
+	          	                    <block wx:if="{{item.step_num3!='0'}}">
+	          	                         {{item.step_num3 +'-'+  item.step_rate3}}, 
+	          	                    </block>
+	          	                    <block wx:if="{{item.step_num4!='0'}}">
+	          	                         {{item.step_num4 +'-'+  item.step_rate4}}, 
+	          	                    </block>
+	          	                    <block wx:if="{{item.step_num5!='0'}}">
+	          	                         {{item.step_num5 +'-'+ item.step_rate5}}, 
+	          	                    </block>
+	          	                    <block wx:if="{{item.step_num6!='0'}}">
+	          	                         {{item.step_num6 +'-'+ item.step_rate6}}, 
+	          	                    </block>
+	          	                    ]
+	          	         </block>
+	          	         <!--py,b类型--> 
+	          	         <block wx:if="{{item.flag=='PB'||item.flag=='PY'}}">
+	          	            {{item.flag}}型 送<block wx:if="{{item.StampType_name&&item.StampType_no}}">{{'['+item.StampType_name+']'}}</block>
+	          	            <block wx:if="{{item.item_name}}">{{'['+item.item_name+'X'+item.give_itemCount+']'}}</block>
+	          	            <block wx:if="{{item.send_money}}">{{'[优惠金额-￥'+item.send_money+'元]'}}</block>
+	          	            </block>
+	          	         </view>
+	          	         
+          	          </view>
+          	       </view>
+          	  </view>
+          </view>
+        </view>
+    </view>
+    
+    <!--支付信息-->
+    <view class="pay">
+        <view class="pay_t">
+            <view> <image src="../../images/footer-icon-01.png" class="cart-image"/>
+          	<view>支付方式</view>
+          	<block wx:if="{{balance_footer=='1'}}"><view class="pay_title">实际收款 :<font>￥{{paymentTotal}}</font></view></block>
+          	</view>
+        </view>
+        <view class="pay_c_o">
+           <view class="pay_items">
+              <view class="pay_node" wx:if="{{(vipinfo.save_amt!=0&&item.paymentId=='10')^item.paymentId!='10'}}" wx:for-items="{{paymentObj}}"   data-paymentId="{{item.paymentId}}" wx:for-index="idx" wx:key="userInfoListId">
+                 <view bindtap="paymentchecked" data-paymentId="{{item.paymentId}}">
+	                   <image src="../../images/{{item.checkedState=='true'?'gactive':'gnact1'}}.png" class="cart-image"/>
+	                   <image src="../../images/zhifu{{item.paymentId}}.png" class="cart-image"/>
+	                  <view>{{item.description}}</view>
+                 </view>
+                 <view class='stepper1'>
+				  <input  bindblur="inputbind" bindfocus="inputfocus" name="commodityStock" type="digit" bindinput='bindManual1' value='{{item.total}}' data-paymentId="{{item.paymentId}}" ></input>
+				</view>
+              </view>
+              
+           </view>
+           
+        </view>
+    </view>
+</view>
+
+<view class="zanwei">
+<view class="balance_footer" style="{{balance_footer}}">
+    <view class="footer_price">实际收款：<font>￥{{paymentTotal}}</font></view>
+    <view class="button" bindtap="paymentfc">
+         <view>确认收款</view>
+    </view>
+</view>
+
+<view class="fud" bindtap="goods_zhan">
+   {{fudD}}
+</view>
+<!-- 模态框 -->
+	<view class="{{modec}}" bindtap="closeMode">
+	      
+	  <form bindsubmit="formSubmit" bindreset="formReset" catchtap="closeMode1">
+	       
+	       <view class="addmodeContent">
+	           <view class="ad_img"> 
+		          <image src="../../images/x1.png" class="cart-image" bindtap="closeMode"/>
+	           </view>
+	          <view class="Content_li">
+	             <input  hidden type="text" value="{{goodsid}}" name="goodsid"/>
+	             <view class="stepper_text"> 
+	                            提货数量
+	             </view>
+	             <view class='stepper'>
+				  <text class='{{minusStatus}}' type='number'  bindtap='bindMinus'  data-flag="t" >-</text>
+				  <input name="commodityPickUp" type="number" bindinput='bindManual' value='{{sumS.numT}}' data-flag="t" disabled="true"></input>
+				  <text bindtap='bindPlus'  data-flag="t">+</text>
+				</view>
+	          </view>
+	          <view class="Content_li">
+	             <view class="stepper_text"> 
+	                            存货数量
+	             </view>
+	             <view class='stepper'>
+				  <text class='{{minusStatus}}' type='number'  bindtap='bindMinus'  data-flag="c" >-</text>
+				  <input  name="commodityStock" type="number" bindinput='bindManual' value='{{sumS.numC}}' data-flag="c" disabled="true"></input>
+				  <text bindtap='bindPlus'  data-flag="c">+</text>
+				</view>
+	          </view>
+	          <view class="Content_li" style="display:none;">
+	             <view class="stepper_text"> 
+	                            商品总数
+	             </view>
+	             <view class='stepper'>
+				  <text class='{{minusStatus}}' type='number'  bindtap='bindMinus' data-flag="z">-</text>
+				  <input  name="commodityTotal" type="number" bindinput='bindManual' value='{{sumS.numZ}}' data-flag="z" style="background:{{bg}}"></input>
+				  <text bindtap='bindPlus'  data-flag="z" >+</text>
+				</view>
+	          </view>
+	          <view class="button">
+	          
+	          </view>
+	          <view class="btn-area button-pace">
+			    <button formType="submit">确定</button>
+			  </view>
+	       </view>
+	   </form>
+	</view>
+</view>

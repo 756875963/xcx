@@ -1,0 +1,138 @@
+<view class="index">
+	<view class="title">
+	    <view class="header">
+	      <div class="li"> 
+		     <span class="span_name"> 
+			      <open-data type="userAvatarUrl" class="li1"></open-data>
+			      <!--<open-data type="userNickName"  class="li2"></open-data>-->
+			      <view>{{indexObj.user_emp_name}}</view>
+		      </span>
+           </div>
+            <div class="li shop"> 
+		           <span class="shop_name">{{indexObj.user_branch_name}}</span>
+            </div>
+	    </view>
+	    <view class="sum">
+	      <span>今日收款<font>{{indexObj.total_num}}</font>笔，合计</span>
+	    </view>
+	    <view class="price">
+	       <block wx:if="{{indexObj.actual_amt!=null&&indexObj.actual_amt!=''}}"><span>￥<font>{{indexObj.actual_amt}}</font></span></block>
+	       <block wx:else><span>￥<font>0.00</font></span></block>
+	    </view>
+	    <!--<view class="schedule">
+	      <progress percent="80" active />
+	    </view>-->
+	</view>
+	<view class="main">
+	  <view class="footer">
+	    <view class="li1">
+	      <div>今日销售</div>
+	      <block wx:if="{{indexObj.sale_amt!=null&&indexObj.sale_amt!=''}}"><div><font>{{indexObj.sale_amt}}</font>元</div></block>
+	      <block wx:else><div>￥<font>0.00</font></div></block>
+	    </view>
+	     <view class="li1">
+	  <div>今日充值</div>
+	      <block wx:if="{{indexObj.today_recharge!=null&&indexObj.today_recharge!=''}}"><div><font>{{indexObj.today_recharge}}</font>元</div></block>
+	      <block wx:else><div>￥<font>0.00</font></div></block>
+	    </view>
+	     <view class="li1">
+	    <div>今日收款</div>
+	      <block wx:if="{{indexObj.sale_amt!=null&&indexObj.sale_amt!=''}}"><div><font>{{indexObj.actual_amt}}</font>元</div></block>
+	      <block wx:else><div>￥<font>0.00</font></div></block>
+	    </view>
+	     <view class="li1">
+	    <div>今日新增</div>
+	      <block wx:if="{{indexObj.register_num!=null&&indexObj.register_num!=''}}"><div><font>{{indexObj.register_num}}</font>位</div></block>
+	      <block wx:else><div><font>0</font></div></block>
+	    </view >
+	</view>
+	<navigator url="../sales/index">
+	   <view class="li">
+	       <div class="li_name"> 
+	           <div class="li_name_img">
+	              <image src="../../images/3-4.png" class="cart-image"/>
+	           </div>
+	           <div class="li_text">
+	                         会员销售
+	           </div>
+	       </div>
+	       <div class="li_href">
+	           <image src="../../images/righta1.png" class="cart-image"/>
+	       </div>
+	   </view>
+	   </navigator>
+	   <navigator url="../member/index?flag=Administration">
+	     <view class="li">
+	       <div class="li_name"> 
+	           <div class="li_name_img">
+	              <image src="../../images/3-5.png" class="cart-image"/>
+	           </div>
+	           <div class="li_text">
+	                         会员管理
+	           </div>
+	       </div>
+	       <div class="li_href">
+	           <image src="../../images/righta1.png" class="cart-image"/>
+	       </div>
+	      </view>
+	    </navigator>
+	   <!-- <view class="li">
+	       <div class="li_name"> 
+	           <div class="li_name_img">
+	              <image src="../../images/3-1.png" class="cart-image"/>
+	           </div>
+	           <div class="li_text">
+	                         会员添加
+	           </div>
+	       </div>
+	       <div class="li_href">
+	           <image src="../../images/righta1.png" class="cart-image"/>
+	       </div>
+	   </view>-->
+	    <navigator url="../statistics/index">
+	    <view class="li">
+	       <div class="li_name"> 
+	           <div class="li_name_img">
+	              <image src="../../images/3-2.png" class="cart-image"/>
+	           </div>
+	           <div class="li_text">
+	                         统计查询
+	           </div>
+	       </div>
+	       <div class="li_href">
+	           <image src="../../images/righta1.png" class="cart-image"/>
+	       </div>
+	   </view>
+	   </navigator>
+	   <navigator url="../inventory/index">
+		    <view class="li">
+		       <div class="li_name"> 
+		           <div class="li_name_img">
+		              <image src="../../images/3-3.png" class="cart-image"/>
+		           </div>
+		           <div class="li_text">
+		                        库存查询
+		           </div>
+		       </div>
+		       <div class="li_href">
+		           <image src="../../images/righta1.png" class="cart-image"/>
+		       </div>
+		    </view>
+	   </navigator>
+	   <navigator url="../inventoryManage/index">
+	    <view class="li">
+	       <div class="li_name"> 
+	           <div class="li_name_img">
+	              <image src="../../images/3-6.png" class="cart-image"/>
+	           </div>
+	           <div class="li_text">
+	                        寄存提货
+	           </div>
+	       </div>
+	       <div class="li_href">
+	           <image src="../../images/righta1.png" class="cart-image"/>
+	       </div>
+	   </view>
+	   </navigator>
+	</view>
+</view>

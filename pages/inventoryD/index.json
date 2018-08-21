@@ -1,0 +1,23 @@
+{
+    "navigationBarTitleText": "库存明细",
+    "pages":[
+    "pages/transfer/index",
+    "pages/index/index",
+    "pages/inventory/index",
+    "pages/inventoryD/index",
+    "pages/statistics/index",
+    "pages/member/index",
+    "pages/goodsSearch/index",
+    "pages/balance/index",
+    "pages/sales/index",
+    "pages/underReview/index",
+    "pages/registered/index",
+    "pages/classify/index",
+    "pages/danger/index",
+    "pages/cart/index",
+    "pages/my/index",
+    "pages/details/index",
+    "pages/brand/index",
+    "pages/list/index"
+  ]
+}
