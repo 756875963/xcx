@@ -1,7 +1,6 @@
 var app = getApp();
 var  wxbarcode =  require('../../utils/index');
 var  newbarcode =  require('../../utils/newBarCode');
-var WxParse = require('../../wxParse/wxParse.js');
 var _url = require('../../utils/url.js');
 var data1 = new Array();
 Page({

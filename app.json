@@ -2,7 +2,6 @@
   "pages":[
     
     "pages/transfer/index",
-    "pages/statistics/index",
     "pages/inventoryManage/index",
     "pages/inventoryManageD/index",
     "pages/index/index",
@@ -19,7 +18,8 @@
     "pages/registered/index",
     "pages/danger/index",
     "pages/orderD/index",
-    "pages/orderD2/index"
+    "pages/orderD2/index",
+    "pages/statistics/index"
   ],
   "window":{
    "navigationBarBackgroundColor": "#55d0eb",

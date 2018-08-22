@@ -1,4 +1,3 @@
-<import src="../../wxParse/wxParse.wxml"/>
 <view class="sales">
     
 	<view class="search">
@@ -18,7 +17,7 @@
 	   <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="scrolltolower"  scroll-into-view="{{toView}}" bindscrolltoupper="scrolltoupper" lower-threshold="50" scroll-top="{{top}}" upper-threshold="20">
 	        <view  class="yeti" wx:if="{{titleS.upperState}}">{{titleS.upperText}}</view>
 	       <view  id="x{{item.num}}" class="li scroll-view-item" wx:for-items="{{data1}}"    wx:for-index="idx" wx:key="userInfoListId">
-	           <div class="li-image" bindtap="imgclick" data-nubmer="{{item.num}}">
+	           <div class="li-image" data-nubmer="{{item.num}}">
                    <image src="../../images/tms2.png" class="cart-image"/>
 	               <span>{{item.num}}</span>
 	           </div>
@@ -43,12 +42,6 @@
 	   </view>
 	</view>
 	
-	<view class="mode" style="display:{{modeFlag}};" bindtap="closeMode2">
-	    <view class="barcode2">
-	      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-	      <view class="barnum">{{mode}}</view>
-	    </view>
-	</view>
 	
 	<view class="shoppingcarticon" bindtap="black_y">
 	    <view class="shoppingsum">{{goodsSum}}</view>

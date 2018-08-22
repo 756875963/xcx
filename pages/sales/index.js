@@ -362,7 +362,6 @@ Page( {
             method: 'POST',
             data:{orderObj:JSON.stringify(orderObj)},
             success:function(e){
-            	debugger;
             	if(e.data.code=="-1"){wx.showToast({title: '网络延时',icon: 'error',duration: 2000,mask:true});}else{
             		 wx.navigateTo({url:"../balance/index?options="+JSON.stringify(e.data)});
             		 app.globalData.orderObj = e.data;

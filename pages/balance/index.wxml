@@ -1,4 +1,3 @@
-<import src="../../wxParse/wxParse.wxml"/>
 <view class="balance">
     <!--<view class="ban-title">
        <image src="../../images/logo.png" class="cart-image"/>

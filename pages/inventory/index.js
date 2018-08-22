@@ -137,7 +137,6 @@ Page({
 	            data:{bar_code:e.currentTarget.dataset.num,item_name:e.currentTarget.dataset.description},
 	            success:function(e){
 	            	 wx.hideLoading();
-	            	 console.log(e);
 	            	if(e.data.data.StockList.StockList.length>0){
 	            		wx.navigateTo({
 								     url:"../inventoryD/index?dataObj="+JSON.stringify(e.data)

@@ -1,7 +1,8 @@
 //登录权限刷新
+var _url = require('../utils/url.js');
 function loginRenovate(ob,open_id,page_flag) {
  ob.request({
-            url: 'https://xcx.juelun.net/xcx1/xcx/platform/appletlist/transferNode.shtml',
+            url: _url.local()+'/xcx/platform/appletlist/transferNode.shtml',
             data:{open_id:open_id},
             success:function(e){
            	//index

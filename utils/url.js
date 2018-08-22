@@ -1,5 +1,5 @@
 function  url(){
-	return "https://xcx.juelun.net/xcx1";
+	return "https://x.zjgthsoft.com/xssht";
 }
 module.exports = {
   local: url

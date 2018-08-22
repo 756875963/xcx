@@ -49,7 +49,6 @@ Page({
 		  	result:{emp_name:_user_emp_name,dateMark:_dateMark,emp_no:_user_emp_no}
 		  });
 		  
-		  console.log(this.data.result);
 		  //设置查询条件
 		  this.req('se');
 		  this.req2(_user_emp_no,0);
@@ -74,7 +73,6 @@ Page({
     
   },
   scrolltolower:function(e){
-  	console.log(e);
   	var _this = this;
   	var _e = e;
   	var _titleS = _this.data.titleS;
@@ -104,6 +102,7 @@ Page({
   },
   //点击切换
   clickTab: function (e) {
+  	console.log(e);
     var that = this;
     if (this.data.currentTab === e.target.dataset.current){
       return false;
